@@ -6,10 +6,9 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { EStatus } from "../utils/enums";
 import { Permission } from "./permission";
 import { Role } from "./role";
-import { AppDataSource } from "@src/data-source";
+import { EStatus } from "@/utils/enums";
 
 @Entity({
   name: "users",
@@ -42,5 +41,3 @@ export class User {
   @ManyToOne(() => Role, (role) => role.users)
   role: Role;
 }
-
-export const UserRepository = AppDataSource.getRepository(User);

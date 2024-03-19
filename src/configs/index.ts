@@ -1,4 +1,4 @@
-import { DatabaseType } from "@src/utils/types";
+import { DatabaseType } from "@/utils/types";
 
 export const databaseConfig = {
   type: process.env.DATABASE_TYPE as DatabaseType,

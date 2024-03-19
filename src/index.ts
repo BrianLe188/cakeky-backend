@@ -9,7 +9,9 @@ const PORT = process.env.PORT;
 const app = express();
 
 AppDataSource.initialize()
-  .then(() => {})
+  .then(() => {
+    console.log("database connected");
+  })
   .catch((error) => console.log(error));
 
 app.listen(PORT, () => {

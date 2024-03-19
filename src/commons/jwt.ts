@@ -1,4 +1,4 @@
-import { ISignJwtTokenPayload } from "@src/utils/interfaces";
+import { ISignJwtTokenPayload } from "@/utils/interfaces";
 import jwt, { SignOptions } from "jsonwebtoken";
 
 export function signToken(
