@@ -13,6 +13,6 @@ export class Category {
   })
   name: string;
 
-  @OneToMany(() => Product, (product) => product.categories)
+  @OneToMany(() => Product, (product) => product.category)
   products: Array<Product>;
 }
