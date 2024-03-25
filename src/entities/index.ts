@@ -1,3 +1,11 @@
 export { User } from "./user";
 export { Permission } from "./permission";
 export { Role } from "./role";
+export { Product } from "./product";
+export { Category } from "./category";
+export { AuthToken } from "./auth-token";
+export { ShopMenu } from "./shop-menu";
+export { ContactInformation } from "./contact-information";
+export { PaymentMethod } from "./payment-method";
+export { Order } from "./order";
+export { Property } from "./property";

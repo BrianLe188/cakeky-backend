@@ -1,5 +1,15 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Category } from "./category";
+import { User } from "./user";
+import { ShopMenu } from "./shop-menu";
+import { Order } from "./order";
+import { Property } from "./property";
 
 @Entity({
   name: "products",
@@ -13,22 +23,26 @@ export class Product {
   })
   name: string;
 
-  @Column()
-  menuId: string;
+  @ManyToOne(() => ShopMenu, (menu) => menu.products)
+  menu: ShopMenu;
 
-  @Column()
-  userId: string;
+  @ManyToOne(() => User, (user) => user.products)
+  user: User;
 
   @Column({
     type: "text",
   })
   description: string;
 
-  @Column({
-    length: 10,
-  })
+  @Column()
   quantity: number;
 
-  @OneToMany(() => Category, (category) => category.products)
-  categories: Array<Category>;
+  @ManyToOne(() => Category, (category) => category.products)
+  category: Category;
+
+  @OneToMany(() => Order, (order) => order.product)
+  orders: Array<Order>;
+
+  @OneToMany(() => Property, (property) => property.product)
+  properties: Array<Property>;
 }
