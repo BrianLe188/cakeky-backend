@@ -13,6 +13,11 @@ export class Category {
   })
   name: string;
 
+  @Column({
+    type: "text",
+  })
+  icon: string;
+
   @OneToMany(() => Product, (product) => product.category)
   products: Array<Product>;
 }

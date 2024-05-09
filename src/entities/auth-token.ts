@@ -17,7 +17,7 @@ export class AuthToken {
   @Column({ type: "text" })
   refreshToken: string;
 
-  @OneToOne(() => User)
+  @OneToOne(() => User, (user) => user.authToken)
   @JoinColumn()
   user: User;
 }

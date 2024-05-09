@@ -40,7 +40,7 @@ export class User {
   })
   status: EStatus;
 
-  @OneToOne(() => Permission)
+  @OneToOne(() => Permission, (permission) => permission.user)
   @JoinColumn()
   permission: Permission;
 
@@ -53,7 +53,7 @@ export class User {
   @OneToMany(() => ShopMenu, (menu) => menu.user)
   menus: Array<ShopMenu>;
 
-  @OneToOne(() => AuthToken)
+  @OneToOne(() => AuthToken, (authToken) => authToken.user)
   authToken: AuthToken;
 
   @OneToMany(() => ContactInformation, (contact) => contact.user)

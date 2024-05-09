@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./user";
 
 @Entity({ name: "permissions" })
 export class Permission {
@@ -16,4 +17,7 @@ export class Permission {
     default: false,
   })
   chat: boolean;
+
+  @OneToOne(() => User, (user) => user.permission)
+  user: User;
 }
