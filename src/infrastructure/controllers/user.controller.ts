@@ -1,12 +1,9 @@
 import { UserService } from "@/applications/services";
+import { UserRepository } from "@/domain/repositories";
 import { Request, Response } from "express";
 
+const userService = new UserService(new UserRepository());
+
 export class UserController {
-    private userService: UserService;
-
-    constructor(userService: UserService) {
-        this.userService = userService;
-    }
-
     async demo(req: Request, res: Response) {}
 }
